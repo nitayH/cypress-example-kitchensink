@@ -20,3 +20,4 @@ RUN chmod 777 /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 
+
