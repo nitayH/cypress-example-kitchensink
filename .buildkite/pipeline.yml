@@ -33,7 +33,9 @@ steps:
       cat redefine/1.txt
     artifact_paths:
       - "1.txt"
+  
   - wait
+
   - label: ":docker: docker tests"
     parallelism: 3
     plugins:
@@ -42,4 +44,3 @@ steps:
           volumes:
             - "./redefine:/app"
           propagate-environment: true
-          
