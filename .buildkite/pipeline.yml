@@ -13,3 +13,4 @@ steps:
     plugins:
       - docker-compose#v3.7.0:
           run: app
+          
