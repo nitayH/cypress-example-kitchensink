@@ -43,6 +43,7 @@ echo "+++ Run Cypress tests"
 # npm run test
 echo ${output}
 
+npm install
 npm install cypress --save-dev
 
 npm start & npx cypress run --spec ${output}
