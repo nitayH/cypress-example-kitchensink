@@ -75,4 +75,4 @@ steps:
             - "./redefine:/app/redefine"
           propagate-environment: true
           entrypoint: 
-            - ["/bin/bash","-c", "lss"]
+            - ["/bin/bash","-c", "ls"]
