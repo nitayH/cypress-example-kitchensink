@@ -83,4 +83,3 @@ steps:
             # - /app/cypress/logs
             # - /app/cypress/fixtures
           propagate-environment: true
-
