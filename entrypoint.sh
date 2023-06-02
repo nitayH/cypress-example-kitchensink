@@ -28,6 +28,7 @@ redefine config set environment=staging
 redefine config set redefine_address=dune-tf-staging.redefine.dev
 redefine config set stable_branch=master
 redefine start --verbose --cypress --worker
+echo "liron"
 # npx cypress run
 env
 cat /app/redefine/1.txt
