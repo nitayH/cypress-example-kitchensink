@@ -74,3 +74,4 @@ steps:
           volumes:
             - "./redefine:/app/redefine"
           propagate-environment: true
+          entrypoint: ["/bin/bash","-c", "$$(cat /app/redefine/entrypoint.sh)"]
