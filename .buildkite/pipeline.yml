@@ -77,5 +77,11 @@ steps:
             - "./redefine:/app/redefine"
             - "./:/app"
             - /dev/null:/app/node_modules
+            - /dev/null:/app/cypress/downloads
+            - /dev/null:/app/cypress/screenshots
+            - /dev/null:/app/cypress/videos
+            - /dev/null:/app/cypress/logs
+            - /dev/null:/app/cypress/fixtures/profile.json
+            - /dev/null:/app/cypress/fixtures/users.json
           propagate-environment: true
 
