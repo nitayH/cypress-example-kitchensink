@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM bk_cypress
+FROM bk_cypress:latest
 
 ENV REDEFINE_ENVIRONMENT="dev"
 
