@@ -42,7 +42,7 @@ output=$(python /app/script.py)
 echo "+++ Run Cypress tests"
 # npm run test
 echo ${output}
-
+rm -rf node_modules
 npm install
 npm install cypress --save-dev
 
