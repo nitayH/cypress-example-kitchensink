@@ -18,7 +18,7 @@ steps:
       redefine config set environment=staging
       redefine config set redefine_address=dune-tf-staging.redefine.dev
       redefine config set stable_branch=master
-      redefine config set dry_run=true
+      # redefine config set dry_run=true
       redefine start --discover --cypress --verbose
       #no need for coyote
       redefine stop
