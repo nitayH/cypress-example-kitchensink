@@ -33,7 +33,7 @@ redefine config set environment=staging
 redefine config set redefine_address=dune-tf-staging.redefine.dev
 redefine config set stable_branch=master
 redefine config set source_branch=master
-redefine config set source_commit=bab2b65bc4b04ce1ece84cdffdc948748077ce1e 
+redefine config set source_commit=c8f03c92960b51b73011d96dfa68a42ab8268bc0
 redefine config set suite_id=master
 redefine start --verbose --cypress --worker
 # npx cypress run
