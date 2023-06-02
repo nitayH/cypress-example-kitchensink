@@ -74,5 +74,3 @@ steps:
           volumes:
             - "./redefine:/app/redefine"
           propagate-environment: true
-          entrypoint: 
-            - ["/bin/bash","-c", "ls"]
