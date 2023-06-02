@@ -23,7 +23,7 @@ echo "liron"
 # scripts/verify_redefine.sh
 # export REDEFINE_AUTH=e88afb65-65ef-4798-bc9d-db4c5342f7f3::163bf879-4060-4636-9fb6-49161e68095a
 # pip3 install -U redefine --index-url https://redefine.dev/pip/
-
+git config --global --add safe.directory /app
 git status
 git branch -a
 
