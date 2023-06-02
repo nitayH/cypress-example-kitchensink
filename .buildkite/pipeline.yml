@@ -58,6 +58,7 @@ steps:
       mkdir -p redefine
       cp 1.txt redefine
       cat redefine/1.txt
+      cp entrypoint.sh redefine
       pwd
     artifact_paths:
       - "redefine/*"
