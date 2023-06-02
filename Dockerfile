@@ -49,8 +49,8 @@ RUN apt-get update && \
 # RUN npm i --save-dev cypress-terminal-report
 # RUN npm install --save-dev @cypress/webpack-preprocessor
 
-RUN chmod 777 /app/redefine/entrypoint.sh
+RUN chmod 777 /app/entrypoint.sh
 
-ENTRYPOINT ["/app/redefine/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 
