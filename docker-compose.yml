@@ -16,4 +16,4 @@ services:
       - BUILDKITE=${BUILDKITE}
       - BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT}
       - BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB}
-    entrypoint: ["/bin/bash","-c", "/app/redefine/entrypoint.sh"]
+    entrypoint: ["/bin/bash","-c", "chmod +x /app/redefine/entrypoint.sh && /app/redefine/entrypoint.sh"]
