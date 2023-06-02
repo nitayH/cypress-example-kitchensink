@@ -27,6 +27,7 @@ git config --global --add safe.directory /app
 git status
 git branch -a
 
+
 pip install ${BUILDKITE_BUILD_CHECKOUT_PATH}/redefine-0.14.16.post8-py3-none-manylinux1_x86_64.whl
 redefine config set environment=staging
 redefine config set redefine_address=dune-tf-staging.redefine.dev
