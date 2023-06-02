@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM nikolaik/python-nodejs:python3.11-nodejs20
+FROM bk_cypress
 
 ENV REDEFINE_ENVIRONMENT="dev"
 
