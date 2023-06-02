@@ -24,7 +24,7 @@ steps:
       redefine stop
       npm install cypress
       # date && npx cypress run 1> 1.txt && date
-      cypress run
+      npx cypress run
       mkdir -p redefine
       cp 1.txt redefine
       cp entrypoint.sh redefine
