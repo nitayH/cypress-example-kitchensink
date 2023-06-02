@@ -59,7 +59,7 @@ steps:
       cp 1.txt redefine
       cat redefine/1.txt
       cp entrypoint.sh redefine
-      pwd
+      ls redefine
     artifact_paths:
       - "redefine/*"
   - wait
@@ -68,7 +68,7 @@ steps:
     parallelism: 3
     plugins:
       - artifacts#v1.9.0:
-          download: "redefine/1.txt"
+          download: "redefine/*"
       - docker-compose#v3.7.0:
           run: app
           volumes:
