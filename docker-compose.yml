@@ -2,8 +2,8 @@ version: '3'
 
 services:
   app:
-    # build: .
-    image: bk_cypress:latest
+    build: .
+    # image: bk_cypress:latest
     network_mode: "host"
     environment: 
       - BUILDKITE_BUILD_CHECKOUT_PATH=.
