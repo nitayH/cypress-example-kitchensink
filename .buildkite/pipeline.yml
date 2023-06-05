@@ -15,16 +15,23 @@ steps:
 
   - label: "run cypress in dry run"
     command: | 
-      mkdir redefine
+      # Install redefine cli
       pip install -U redefine --index-url https://redefine.dev/pip/
+      
+      # Generate session id
+      mkdir redefine
       export REDEFINE_SESSION_ID=$(redefine get session_id)
       echo $REDEFINE_SESSION_ID > redefine/session_id.txt
+
+      # Configure redefine 
       redefine config set stable_branch=main
       redefine config set dry_run=true
       redefine start --discover --cypress
+
+      # Run cypress in dry run mode
       npx cypress run 1> redefine/specs.txt
     env:
-      REDEFINE_AUTH: e88afb65-65ef-4798-bc9d-db4c5342f7f3::163bf879-4060-4636-9fb6-49161e68095a
+      REDEFINE_AUTH: $$YOUR-REDEFINE-AUTH$$
     artifact_paths:
       - "redefine/*"
   - wait
