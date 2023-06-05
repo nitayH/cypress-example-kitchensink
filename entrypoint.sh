@@ -20,7 +20,7 @@
 npm install cypress@10.10
 
 pip3 install -U redefine --index-url https://redefine.dev/pip/
-# export REDEFINE_SESSION_ID=$(cat redefine/session_id.txt)
+export REDEFINE_SESSION_ID=$(cat redefine/session_id.txt)
 redefine config set stable_branch=master
 redefine start --verbose --cypress --worker
 
