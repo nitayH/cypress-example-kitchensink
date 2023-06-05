@@ -36,7 +36,7 @@ steps:
       - "redefine/*"
   - wait
 
-  - label: ":docker: docker tests"
+  - label: ":docker: run cypress in docker with redefine"
     parallelism: 3
     plugins:
       - artifacts#v1.9.0:
