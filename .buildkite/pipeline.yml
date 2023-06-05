@@ -43,8 +43,9 @@ steps:
       npx cypress run 1> redefine/specs.txt
 
     artifact_paths:
-      # upload redefine artifacts 
+      # upload redefine artifacts so the workers can download them
       - "redefine/*"
+      
   - wait
 
   - label: ":docker: run cypress in docker with redefine"
