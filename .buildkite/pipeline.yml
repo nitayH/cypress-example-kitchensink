@@ -43,6 +43,7 @@ steps:
       npx cypress run 1> redefine/specs.txt
 
     artifact_paths:
+      # upload redefine artifacts 
       - "redefine/*"
   - wait
 
