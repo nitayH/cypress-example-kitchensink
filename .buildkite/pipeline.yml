@@ -16,6 +16,7 @@ steps:
   - label: "run cypress in dry run"
     command: | 
       mkdir redefine
+      echo "foo" > redefine/foo.txt
       # pip install -U redefine --index-url https://redefine.dev/pip/
       # export REDEFINE_SESSION_ID=$(redefine get session_id)
       # echo $REDEFINE_SESSION_ID > redefine/session_id.txt
