@@ -29,10 +29,11 @@ export REDEFINE_SESSION_ID=$(cat redefine/session_id.txt)
 redefine config set stable_branch=master
 redefine start --verbose --cypress --worker
 
-# the full spec list provided by redefine exists in redefine/specs.txt
-# run your current logic to select tests for the specific worker
-# based on BUILDKITE_PARALLEL_JOB, and BUILDKITE_PARALLEL_JOB_COUNT
-# and pass the list of specs for the current worker to cypress.
+# The full spec list provided by redefine exists in redefine/specs.txt
+# Use BUILDKITE_PARALLEL_JOB, and BUILDKITE_PARALLEL_JOB_COUNT,
+# to run your current logic to select tests for the specific worker.
+filtered_spec_list_for_worker=
 
-
+# Pass the list of specs for the current worker to cypress.
+npx cypress run --spec ${filtered_spec_list_for_worker}
 
