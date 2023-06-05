@@ -5,3 +5,6 @@ services:
     build: .
     entrypoint:
       - /app/entrypoint.sh
+
+
+      
