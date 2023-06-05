@@ -5,6 +5,7 @@ env:
 
 
 steps:
+
   - label: "Redefine verify"
     env:
       REDEFINE_AUTH: $$YOUR-REDEFINE-AUTH$$
@@ -14,7 +15,7 @@ steps:
 
         # Configure Redefine
         redefine config set stable_branch=main
-        
+
         # Run redefine verify
         redefine verify --cypress
 
