@@ -6,49 +6,7 @@ env:
 
 steps:
 
-  - label: "Redefine verify"
-    env:
-      REDEFINE_AUTH: $$YOUR-REDEFINE-AUTH$$
-    command: |
-        # Install redefine cli
-        pip install -U redefine --index-url https://redefine.dev/pip/
-
-        # Configure Redefine
-        redefine config set stable_branch=master
-
-        # Run redefine verify
-        redefine verify --cypress
-
-  - label: "run cypress in dry run"
-    env:
-      REDEFINE_AUTH: $$YOUR-REDEFINE-AUTH$$
-    command: | 
-
-    # Install redefine cli
-      pip install -U redefine --index-url https://redefine.dev/pip/
-      
-    # Create a folder for redefine build artifacts to pass to the workers
-      mkdir redefine
-
-    # Generate redefine session_id
-      export REDEFINE_SESSION_ID=$(redefine get session_id)
-      echo $REDEFINE_SESSION_ID > redefine/session_id.txt
-
-     # Configure redefine 
-      redefine config set stable_branch=master
-      redefine config set dry_run=true
-      redefine start --discover --cypress
-      
-    # Run cypress in dry run mode
-      npx cypress run 1> redefine/specs.txt
-
-    artifact_paths:
-      # upload redefine artifacts so the workers can download them
-      - "redefine/*"
-
-  - wait
-
-  - label: ":docker: run cypress in docker with redefine"
+  - label: ":docker: run cypress in docker"
     env:
       REDEFINE_AUTH: $$YOUR-REDEFINE-AUTH$$
     parallelism: 3
