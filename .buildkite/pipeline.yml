@@ -15,20 +15,23 @@ steps:
 
   - label: "run cypress in dry run"
     command: | 
+      mkdir redefine
       pip install -U redefine --index-url https://redefine.dev/pip/
+      export REDEFINE_SESSION_ID=$(redefine get session_id)
+      echo $REDEFINE_SESSION_ID > redefine/session_id.txt
       redefine config set stable_branch=main
       redefine config set dry_run=true
       redefine start --discover --cypress
       npx cypress run 1> redefine/specs.txt
     artifact_paths:
-      - "redefine/specs.txt"
+      - "redefine/*"
   - wait
 
   - label: ":docker: docker tests"
     parallelism: 3
     plugins:
       - artifacts#v1.9.0:
-          download: "redefine/specs.txt"
+          download: "redefine/*"
       - docker-compose#v3.7.0:
           run: app
           volumes:
