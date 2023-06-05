@@ -14,7 +14,7 @@ steps:
         pip install -U redefine --index-url https://redefine.dev/pip/
 
         # Configure Redefine
-        redefine config set stable_branch=main
+        redefine config set stable_branch=master
 
         # Run redefine verify
         redefine verify --cypress
@@ -35,7 +35,7 @@ steps:
       echo $REDEFINE_SESSION_ID > redefine/session_id.txt
 
      # Configure redefine 
-      redefine config set stable_branch=main
+      redefine config set stable_branch=master
       redefine config set dry_run=true
       redefine start --discover --cypress
       
@@ -45,7 +45,7 @@ steps:
     artifact_paths:
       # upload redefine artifacts so the workers can download them
       - "redefine/*"
-      
+
   - wait
 
   - label: ":docker: run cypress in docker with redefine"
