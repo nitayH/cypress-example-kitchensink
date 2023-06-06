@@ -17,22 +17,22 @@
 # npm install --save-dev
 # npm install
 
-npm install cypress@10.10
+npm install cypress@10.11
 
 # pip3 install -U redefine --index-url https://redefine.dev/pip/
-pip install ${BUILDKITE_BUILD_CHECKOUT_PATH}/redefine-0.14.17.post6-py3-none-manylinux1_x86_64.whl
+pip install /app/redefine-0.14.17.post6-py3-none-manylinux1_x86_64.whl
 redefine config set environment=staging
 redefine config set redefine_address=dune-tf-staging.redefine.dev
 redefine config set stable_branch=master
-redefine start --verbose --cypress --worker
+redefine verify --cypress
 
 
-cat /app/redefine/specs.txt
-output=$(node /app/script.py)
+# cat /app/redefine/specs.txt
+# output=$(node /app/script.py)
 
-echo "+++ Run Cypress tests"
-echo ${output}
-npm start & npx cypress run --spec ${output}
+# echo "+++ Run Cypress tests"
+# echo ${output}
+# npm start & npx cypress run --spec ${output}
 
 
 
