@@ -17,6 +17,7 @@
 # npm install --save-dev
 # npm install
 
+env 
 npm install cypress@10.10
 
 # pip3 install -U redefine --index-url https://redefine.dev/pip/
