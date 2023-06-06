@@ -25,7 +25,6 @@ steps:
       
       mkdir -p redefine
       echo "foo" > redefine/specs.txt
-      cp specs.txt redefine
       
       # cat redefine/specs.txt
     artifact_paths:
