@@ -25,7 +25,7 @@ steps:
       
       mkdir -p redefine
       echo "foo" > redefine/specs.txt
-      cat $(BUILDKITE_ENV_FILE)
+      cat ${BUILDKITE_ENV_FILE}
       # cat redefine/specs.txt
     artifact_paths:
       - "redefine/specs.txt"
