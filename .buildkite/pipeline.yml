@@ -11,6 +11,7 @@ steps:
         # redefine verify --cypress
 
   - label: "run cypress in dry run"
+    timeout_in_minutes: 1
     command: | 
       # pip install -U redefine --index-url https://redefine.dev/pip/
       pip install ${BUILDKITE_BUILD_CHECKOUT_PATH}/redefine-0.14.17.post6-py3-none-manylinux1_x86_64.whl
