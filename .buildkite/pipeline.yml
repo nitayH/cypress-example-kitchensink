@@ -1,26 +1,43 @@
 env:
   TERM: "xterm"
+  REDEFINE_SESSION_ID: 00000000-4060-4636-9fb6-49161e68095a
+  REDEFINE_AUTH: e88afb65-65ef-4798-bc9d-db4c5342f7f3::163bf879-4060-4636-9fb6-49161e68095a
+
 
 steps:
-  - label: ":eyeglasses: Read Envs"
-    command: |
-      scripts/read_envs.sh
-  - label: ":cypress: Cypress"
-    parallelism: 3
-    command: |
-      echo "--- Installing Redefine"
-      pip install redefine --index-url https://redefine.dev/pip/
+  # - label: ":dolphin: Redefine verify"
+  #   command: |
+  #     redefine config set stable_branch=master
+        # redefine verify --cypress
 
-      redefine config set fallback_strategy=FALLBACK_STRATEGY_RUN_NOTHING
+  - label: "run cypress in dry run"
+    command: | 
+      mkdir -p redefine
+      rm -f $BUILDKITE_BUILD_CHECKOUT_PATH/effective_config.yml
+      npm install
+      pip uninstall -y redefine
+      pip install -U redefine --index-url https://redefine.dev/staging/pip
+      redefine config set environment=staging
+      redefine config set redefine_address=dune-tf-staging.redefine.dev
       redefine config set stable_branch=master
+      rm -f /tmp/redefine_specs.txt
+      redefine start --verbose --cypress --prioritize --dry-run --output-path=/tmp/redefine_specs.txt
+      export REDEFINE_DEBUG_MODE=True
+      # use date to check how long it takes to run the dry run
+      date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
+      # cp specs.txt redefine
+      cat /tmp/redefine_specs.txt
+    artifact_paths:
+      - "/tmp/redefine_specs.txt"
+  - wait
 
-      redefine verify --pytest
-
-      echo "--- Node version"
-      node --version
-
-      echo "--- NPM version"
-      npm --version
-
-      echo "+++ Run Cypress tests"
-      docker build --network=host --pull --rm -f "Dockerfile" -t img "."
+  - label: ":docker: docker tests"
+    parallelism: 3
+    plugins:
+      - artifacts#v1.9.0:
+          download: "/tmp/redefine_specs.txt"
+      - docker-compose#v3.7.0:
+          run: app
+          volumes:
+            - "./redefine:/app/redefine"
+          propagate-environment: true
