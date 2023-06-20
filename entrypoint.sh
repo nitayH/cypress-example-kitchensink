@@ -58,3 +58,4 @@ output=$(python /app/script.py)
 echo "+++ Run Cypress tests"
 echo ${output}
 npm start & npx cypress run --spec ${output}
+
