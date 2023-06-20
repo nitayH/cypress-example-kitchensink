@@ -24,6 +24,7 @@ steps:
       redefine start --verbose --cypress --prioritize --dry-run --output-path=redefine_specs.txt
       export REDEFINE_DEBUG_MODE=True
       # use date to check how long it takes to run the dry run
+      export REDEFINE_DEBUG_MODE=True
       date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
       # cat /tmp/redefine/redefine_specs.txt
       cp redefine_specs.txt redefine/redefine_specs.txt
