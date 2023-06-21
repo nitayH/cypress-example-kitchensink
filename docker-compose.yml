@@ -18,5 +18,6 @@ services:
       - BUILDKITE_BUILD_URL=${BUILDKITE_BUILD_URL}
       - REDEFINE_AUTH=${REDEFINE_AUTH}
       - REDEFINE_SESSION_ID=${REDEFINE_SESSION_ID}
+      - REDEFINE_DEBUG_MODE=True
     entrypoint:
       - /app/entrypoint.sh
