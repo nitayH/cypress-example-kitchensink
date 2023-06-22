@@ -1,22 +1,5 @@
 #!/bin/bash
 
-# echo "--- Node version"
-# node --version
-
-# echo "--- NPM version"
-# npm --version
-
-# echo "--- Cypress version"
-# npx cypress --version
-
-# echo "--- Env vars"
-# chmod 777 scripts/read_envs.sh
-# scripts/read_envs.sh
-
-# echo "--- Installing npm packages"
-# npm install --save-dev
-# npm install
-
 # this is a trick since I wasn't able to pass the redefine_specs file to the container for some reason
 cat > /app/redefine/redefine_specs.txt<< EOF
 cypress/e2e/2-advanced-examples/network_requests.cy.js
