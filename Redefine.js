@@ -118988,6 +118988,7 @@ function registerPlugin(on, cypressConfig, roadRunnerConfig) {
                       setTimeout(function() {
                         return;
                       }, 5e3);
+                      logger.debug("timeout exceeded - finished execution");
                     }).catch(function(error) {
                       logger.error("Failed to send RecordTestResults: ".concat(error.message));
                     })];
