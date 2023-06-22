@@ -38,7 +38,6 @@ steps:
   - label: ":docker: docker tests"
     parallelism: 3
     plugins:
-    plugins:
       - docker-compose#v3.7.0:
           run: app
           volumes:
