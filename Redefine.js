@@ -118908,7 +118908,7 @@ function registerPlugin(on, cypressConfig, roadRunnerConfig) {
           return [4, coyote.recordTestResults(request).then(function(response) {
             logger.info("sent RecordTestResults successfully in dry run!");
             setTimeout(function() {
-              return;
+              logger.info("timer exceeded, dry run finished!");
             }, 5e3);
           }).catch(function(error) {
             logger.error("Failed to send RecordTestResults in dry run: ".concat(error.message));
@@ -118986,9 +118986,9 @@ function registerPlugin(on, cypressConfig, roadRunnerConfig) {
                     return [4, coyote.recordTestResults(request2).then(function(response) {
                       logger.info("sent RecordTestResults successfully!");
                       setTimeout(function() {
-                        return;
+                        console.log("timeout exceeded - finished execution");
+                        logger.debug("timeout exceeded - finished execution");
                       }, 5e3);
-                      logger.debug("timeout exceeded - finished execution");
                     }).catch(function(error) {
                       logger.error("Failed to send RecordTestResults: ".concat(error.message));
                     })];
