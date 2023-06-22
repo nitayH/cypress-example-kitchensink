@@ -4,34 +4,34 @@ env:
   REDEFINE_AUTH: 691b03c7-ad0d-4844-933c-f63b1ae5535f::7f16a346-3f0d-4bec-981b-20d9006fe0ba
 
 steps:
-  # - label: ":dolphin: Redefine verify"
-  #   command: |
-  #     redefine config set stable_branch=master
-        # redefine verify --cypress
-  # - label: "run cypress in dry run"
-  #   command: | 
-  #     mkdir -p /tmp/redefine
-  #     mkdir -p redefine
-  #     rm -f $BUILDKITE_BUILD_CHECKOUT_PATH/effective_config.yml
-  #     npm install
-  #     pip uninstall -y redefine
-  #     pip install -U redefine --index-url https://redefine.dev/pip
-  #     #pip install -U redefine --index-url https://redefine.dev/staging/pip
-  #     #redefine config set environment=staging
-  #     #redefine config set redefine_address=dune-tf-staging.redefine.dev
-  #     redefine config set stable_branch=master
-  #     rm -f /tmp/redefine/redefine_specs.txt
-  #     redefine start --verbose --cypress --prioritize --dry-run --output-path=/tmp/redefine/redefine_specs.txt
-  #     export REDEFINE_DEBUG_MODE=True
-  #     # use date to check how long it takes to run the dry run
-  #     date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
-  #     redefine stop
-  #     cat /tmp/redefine/redefine_specs.txt
-  #     cp /tmp/redefine/redefine_specs.txt redefine/redefine_specs.txt
+  - label: ":dolphin: Redefine verify"
+    command: |
+      redefine config set stable_branch=master
+        redefine verify --cypress
+  - label: "run cypress in dry run"
+    command: | 
+      mkdir -p /tmp/redefine
+      mkdir -p redefine
+      rm -f $BUILDKITE_BUILD_CHECKOUT_PATH/effective_config.yml
+      npm install
+      pip uninstall -y redefine
+      pip install -U redefine --index-url https://redefine.dev/pip
+      #pip install -U redefine --index-url https://redefine.dev/staging/pip
+      #redefine config set environment=staging
+      #redefine config set redefine_address=dune-tf-staging.redefine.dev
+      redefine config set stable_branch=master
+      rm -f /tmp/redefine/redefine_specs.txt
+      redefine start --verbose --cypress --prioritize --dry-run --output-path=/tmp/redefine/redefine_specs.txt
+      export REDEFINE_DEBUG_MODE=True
+      # use date to check how long it takes to run the dry run
+      date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
+      redefine stop
+      cat /tmp/redefine/redefine_specs.txt
+      cp /tmp/redefine/redefine_specs.txt redefine/redefine_specs.txt
 
-  #   artifact_paths:
-  #     - redefine/redefine_specs.txt
-  # - wait
+    artifact_paths:
+      - redefine/redefine_specs.txt
+  - wait
 
 
 
