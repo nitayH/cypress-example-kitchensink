@@ -49,7 +49,7 @@ pip3 install -U redefine --index-url https://redefine.dev/pip
 # redefine config set environment=staging
 # redefine config set redefine_address=dune-tf-staging.redefine.dev
 redefine config set stable_branch=master
-redefine start --verbose --cypress --worker
+redefine start --verbose --pytest --worker
 
 
 # cat /app/redefine/redefine_specs.txt
