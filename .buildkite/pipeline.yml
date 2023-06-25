@@ -1,6 +1,6 @@
 env:
   TERM: "xterm"
-  REDEFINE_SESSION_ID: 00000000-4060-4636-9fb6-49161e687098680000
+  REDEFINE_SESSION_ID: 00000000-4060-4636-9fb6-49161e687098680001
   REDEFINE_AUTH: 691b03c7-ad0d-4844-933c-f63b1ae5535f::7f16a346-3f0d-4bec-981b-20d9006fe0ba
 
 steps:
@@ -23,10 +23,10 @@ steps:
       export REDEFINE_DEBUG_MODE=True
       cat /tmp/redefine_daemon.log
       # use date to check how long it takes to run the dry run
-      # date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
-      # redefine stop
-      # cat /tmp/redefine/redefine_specs.txt
-      # cp /tmp/redefine/redefine_specs.txt redefine/redefine_specs.txt
+      date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
+      redefine stop
+      cat /tmp/redefine/redefine_specs.txt
+      cp /tmp/redefine/redefine_specs.txt redefine/redefine_specs.txt
 
     artifact_paths:
       - redefine/redefine_specs.txt
