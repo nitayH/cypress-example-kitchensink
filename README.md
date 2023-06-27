@@ -15,3 +15,4 @@ this repo is a fork which we use to model cypress and buildkite for a specific c
 - there are 2 failing tests in the first docker worker, this is caused due to the fact that we are using cypress version 10.7 and not a newer one.
 - if you care only about the workers and you want a faster cycle, checkout the step named "create specs.txt output" in pipeline.yml 
 
+# Redefine 
