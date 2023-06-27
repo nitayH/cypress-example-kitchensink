@@ -2,8 +2,10 @@ env:
   TERM: "xterm"
   REDEFINE_SESSION_ID: 00000000-4060-4636-9fb6-49161e68095a
   # REDEFINE_AUTH: 691b03c7-ad0d-4844-933c-f63b1ae5535f::7f16a346-3f0d-4bec-981b-20d9006fe0ba
-  REDEFINE_AUTH: "e88afb65-65ef-4798-bc9d-db4c5342f7f3::163bf879-4060-4636-9fb6-49161e68095a"
-  REDEFINE_ENVIRONMENT: "staging"
+  # staging client 
+  # REDEFINE_AUTH: "e88afb65-65ef-4798-bc9d-db4c5342f7f3::163bf879-4060-4636-9fb6-49161e68095a"
+  # REDEFINE_ENVIRONMENT: "staging"
+  REDEFINE_AUTH: 51706255-d3eb-48da-ad33-43ddb5c1b3de::7665dc2f-a4fb-4378-a50f-6d874d5f649c
 
 steps:
   # - label: ":dolphin: Redefine verify"
@@ -17,9 +19,10 @@ steps:
       rm -f $BUILDKITE_BUILD_CHECKOUT_PATH/effective_config.yml
       npm install
       pip uninstall -y redefine
-      pip install redefine --index-url https://redefine.dev/staging/pip/
-      redefine config set environment=staging
-      redefine config set redefine_address=dune-tf-staging.redefine.dev
+      # pip install redefine --index-url https://redefine.dev/staging/pip/
+      pip install redefine --index-url https://redefine.dev/pip/
+      # redefine config set environment=staging
+      # redefine config set redefine_address=dune-tf-staging.redefine.dev
       redefine config set stable_branch=master
       redefine config set dry_run=true
       redefine config set log_to_file=true
