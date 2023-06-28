@@ -26,6 +26,12 @@ steps:
       redefine config set stable_branch=master
       redefine config set dry_run=true
       redefine config set log_to_file=true
+
+      # set dynamic prediction
+      redefine config set time_limit=20
+      redefine config set selection_method=2 # one of these should be correct
+      redefine config set static_prediction=false
+
       # need to run redefine after setting config
       redefine start --prioritize --cypress --verbose --dry-run --output-path=/tmp/redefine/redefine_specs.txt
       export REDEFINE_DEBUG_MODE=True
