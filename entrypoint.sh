@@ -46,8 +46,8 @@ cat /app/redefine/redefine_specs.txt
 npm install cypress@10.7
 pip3 uninstall -y redefine
 pip3 install -U redefine --index-url https://redefine.dev/pip
-# redefine config set environment=staging
-# redefine config set redefine_address=dune-tf-staging.redefine.dev
+redefine config set environment=staging
+redefine config set redefine_address=dune-tf-staging.redefine.dev
 redefine config set stable_branch=master
 # redefine start --verbose --pytest --worker
 redefine start --verbose --cypress --worker --worker-id="${BUILDKITE_PARALLEL_JOB}_${BUILDKITE_RETRY_COUNT}"
