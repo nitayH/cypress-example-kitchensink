@@ -23,7 +23,6 @@ steps:
       export REDEFINE_DEBUG_MODE=True
       date && npx cypress run --env REDEFINE_DEBUG_MODE=True && date
       # redefine stop
-      cat /tmp/redefine/
       cat /tmp/redefine/redefine_specs.txt
       cp /tmp/redefine/redefine_specs.txt redefine/redefine_specs.txt
 
