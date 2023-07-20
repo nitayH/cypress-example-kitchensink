@@ -19,5 +19,6 @@ services:
       - REDEFINE_AUTH=${REDEFINE_AUTH}
       - REDEFINE_SESSION_ID=${REDEFINE_SESSION_ID}
       - REDEFINE_DEBUG_MODE=True
+      - BUILDKITE_RETRY_COUNT=${BUILDKITE_RETRY_COUNT}
     entrypoint:
       - /app/entrypoint.sh
