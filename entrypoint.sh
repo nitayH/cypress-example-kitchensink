@@ -62,4 +62,5 @@ npm start & npx cypress run --spec ${output}
 
 redefine stop
 
+
 cat /tmp/redefine_daemon.log
