@@ -16,6 +16,7 @@ steps:
       # redefine config set redefine_address=dune-tf-staging.redefine.dev
       redefine config set stable_branch=master
       redefine config set selection_method=2
+      redefine config set static_prediction=false
       redefine config set time_limit=100
       rm -f /tmp/redefine/redefine_specs.txt
       redefine start --verbose --cypress --active --dry-run --output-path=/tmp/redefine/redefine_specs.txt
